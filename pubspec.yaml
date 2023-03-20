@@ -1,0 +1,41 @@
+name: talk_stream
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dependencies:
+  bloc: ^8.1.1
+  collection: ^1.17.0
+  emoji_picker_flutter: ^1.5.2
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.2
+  flutter_localizations:
+    sdk: flutter
+  font_awesome_flutter: ^10.4.0
+  get_it: ^7.2.0
+  go_router: ^6.2.0
+  google_fonts: ^4.0.3
+  image_picker: ^0.8.7
+  intl: ^0.17.0
+  json_annotation: ^4.8.0
+  json_serializable: ^6.6.1
+  meta: ^1.8.0
+  nested: ^1.0.0
+  timeago: ^3.3.0
+
+dev_dependencies:
+  bloc_test: ^9.1.1
+  build_runner: ^2.3.3
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
