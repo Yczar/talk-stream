@@ -46,14 +46,14 @@ class ChatItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title ?? 'user.name ?? ' '',
+                    title ?? '',
                     style: const TextStyle(
                       color: Color(0xFF121212),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
-                    description ?? 'chat.lastMessage ?? ' '',
+                    description ?? '',
                     style: const TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w400,

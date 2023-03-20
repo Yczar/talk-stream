@@ -31,10 +31,7 @@ class SignupCubit extends Cubit<SignupState> {
           jsonDecode(result.body) as Map<String, dynamic>,
         ),
       );
-      print(result);
     } on HttpException catch (e) {
-      print(e.message);
-
       emit(
         SignupError(
           errorMessage: e.message,

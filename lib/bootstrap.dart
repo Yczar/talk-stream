@@ -4,7 +4,6 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:talk_stream/app/core/locator.dart';
-import 'package:talk_stream/app/core/services/services.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();

@@ -4,10 +4,10 @@ import 'package:talk_stream/app/view/widgets/margins/y_margin.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
-    super.key,
     required this.label,
     required this.hintText,
     required this.icon,
+    super.key,
     this.obscureText = false,
     this.controller,
   });
@@ -18,7 +18,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
 
   @override
-  _CustomTextFieldState createState() => _CustomTextFieldState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {

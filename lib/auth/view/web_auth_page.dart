@@ -99,7 +99,8 @@ class _HomeView extends StatelessWidget {
                     const Text(
                       'TalkStream is a versatile chat app that offers a '
                       'seamless messaging experience for both personal and '
-                      'professional use. It was built using Dart Frog and Flutter.',
+                      'professional use. It was built using Dart Frog '
+                      'and Flutter.',
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 16,

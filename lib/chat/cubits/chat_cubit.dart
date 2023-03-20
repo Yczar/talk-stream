@@ -27,7 +27,6 @@ class ChatCubit extends Cubit<ChatState> {
           'userId': userId,
         },
       );
-      print(result.body);
       if (!reload) {
         emit(ChatInitial());
       }
@@ -39,15 +38,12 @@ class ChatCubit extends Cubit<ChatState> {
         ),
       );
     } on HttpException catch (e) {
-      print(e.message);
       emit(
         ChatError(
           errorMessage: e.message,
         ),
       );
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (e) {
       emit(
         ChatError(
           errorMessage: e.toString(),

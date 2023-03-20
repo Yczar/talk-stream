@@ -20,6 +20,5 @@ class WebSocketService {
 
   void dispose() {
     channel.sink.close();
-    channel.stream.drain();
   }
 }

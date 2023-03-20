@@ -12,8 +12,8 @@ import 'package:talk_stream/auth/cubits/auth_cubit.dart';
 
 class WebSignInWidget extends StatefulWidget {
   const WebSignInWidget({
-    super.key,
     required this.onSwitch,
+    super.key,
   });
   final VoidCallback onSwitch;
 
@@ -80,10 +80,10 @@ class _WebSignInWidgetState extends State<WebSignInWidget> {
 
 class SignInView extends StatelessWidget {
   const SignInView({
-    super.key,
     required this.onSwitch,
     required this.emailEditingController,
     required this.passwordEditingController,
+    super.key,
   });
   final VoidCallback onSwitch;
   final TextEditingController emailEditingController;

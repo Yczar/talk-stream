@@ -16,8 +16,8 @@ import 'package:talk_stream/auth/cubits/auth_cubit.dart';
 
 class WebSignUpWidget extends StatefulWidget {
   const WebSignUpWidget({
-    super.key,
     required this.onSwitch,
+    super.key,
   });
   final VoidCallback onSwitch;
 
@@ -93,13 +93,12 @@ class SignUpView extends StatelessWidget {
   const SignUpView(
     this.onSwitch,
     this._pickImage, {
-    super.key,
     required this.emailController,
     required this.nameController,
     required this.passwordController,
     required this.usernameController,
-    // required this.imageFile,
     required this.pickedFileBytes,
+    super.key,
   });
   final VoidCallback onSwitch;
   final void Function(ImageSource source) _pickImage;
@@ -107,7 +106,6 @@ class SignUpView extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController usernameController;
-  // final ioHtml.File? imageFile;
   final Uint8List? pickedFileBytes;
 
   @override

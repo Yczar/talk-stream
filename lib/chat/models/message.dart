@@ -12,7 +12,7 @@ class Message extends Equatable {
   final DateTime? timestamp;
   final String? roomId;
   final List<String>? members;
-  Message({
+  const Message({
     this.sender,
     this.message,
     this.timestamp,

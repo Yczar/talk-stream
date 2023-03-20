@@ -23,7 +23,6 @@ class AllUsersCubit extends Cubit<AllUsersState> {
           'userId': userId,
         },
       );
-      print(result.body);
       emit(
         AllUsersLoaded(
           users: (jsonDecode(result.body) as List)
@@ -31,19 +30,16 @@ class AllUsersCubit extends Cubit<AllUsersState> {
               .toList(),
         ),
       );
-    } on HttpException catch (e) {
-      print(e.message);
+    } on HttpException catch (erorr) {
       emit(
         AllUsersError(
-          errorMessage: e.message,
+          errorMessage: erorr.message,
         ),
       );
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (erorr) {
       emit(
         AllUsersError(
-          errorMessage: e.toString(),
+          errorMessage: erorr.toString(),
         ),
       );
     }

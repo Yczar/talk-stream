@@ -12,11 +12,9 @@ part 'chat_details_socket_state.dart';
 class ChatDetailsSocketCubit extends Cubit<ChatDetailsSocketState> {
   ChatDetailsSocketCubit({
     required WebSocketService webSocketService,
-    required List<Message> messages,
     required String userId,
     required String roomId,
   })  : _webSocketService = webSocketService,
-        _messages = messages,
         _userId = userId,
         _roomId = roomId,
         super(ChatDetailsSocketInitial()) {
@@ -30,7 +28,6 @@ class ChatDetailsSocketCubit extends Cubit<ChatDetailsSocketState> {
   }
   late final StreamSubscription<dynamic> _socketSubscription;
   final WebSocketService _webSocketService;
-  final List<Message> _messages;
   final String _userId;
   final String _roomId;
 

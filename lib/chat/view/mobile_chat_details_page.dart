@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart';
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,12 +9,14 @@ import 'package:talk_stream/auth/cubits/auth_cubit.dart';
 import 'package:talk_stream/auth/models/user.dart';
 import 'package:talk_stream/chat/cubits/chat_details_socket_cubit.dart';
 import 'package:talk_stream/chat/models/message.dart';
+import 'package:talk_stream/chat/view/widgets/bottom_chat_field.dart';
+import 'package:talk_stream/chat/view/widgets/chat_bubble.dart';
 
 class MobileChatDetailsPage extends StatefulWidget {
   const MobileChatDetailsPage({
-    super.key,
     required this.user,
     required this.messages,
+    super.key,
   });
   final User? user;
   final List<Message> messages;
@@ -37,7 +38,6 @@ class _MobileChatDetailsPageState extends State<MobileChatDetailsPage> {
         if (state is AuthAuthenticated) {
           return BlocProvider(
             create: (context) => ChatDetailsSocketCubit(
-              messages: widget.messages,
               roomId: widget.messages.firstOrNull?.roomId ?? '',
               userId: state.user.id ?? '',
               webSocketService: WebSocketService(),
@@ -57,10 +57,10 @@ class _MobileChatDetailsPageState extends State<MobileChatDetailsPage> {
 
 class MobileChatDetailsView extends StatefulWidget {
   const MobileChatDetailsView({
+    required this.messages,
     super.key,
     this.user,
     this.me,
-    required this.messages,
   });
 
   final User? user;
@@ -68,7 +68,7 @@ class MobileChatDetailsView extends StatefulWidget {
   final List<Message> messages;
 
   @override
-  _MobileChatDetailsViewState createState() => _MobileChatDetailsViewState();
+  State<MobileChatDetailsView> createState() => _MobileChatDetailsViewState();
 }
 
 class _MobileChatDetailsViewState extends State<MobileChatDetailsView> {
@@ -164,159 +164,6 @@ class _MobileChatDetailsViewState extends State<MobileChatDetailsView> {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
-        ),
-      ),
-    );
-  }
-}
-
-class ChatBubble extends StatelessWidget {
-  const ChatBubble({
-    super.key,
-    required this.message,
-    required this.isMe,
-  });
-  final String message;
-  final bool isMe;
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        margin: const EdgeInsets.all(8),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: isMe ? Colors.blue : Colors.grey[300],
-          borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(12),
-            topRight: const Radius.circular(12),
-            bottomLeft:
-                isMe ? const Radius.circular(12) : const Radius.circular(0),
-            bottomRight:
-                isMe ? const Radius.circular(0) : const Radius.circular(12),
-          ),
-        ),
-        child: Text(
-          message,
-          style: TextStyle(
-            color: isMe ? Colors.white : Colors.black,
-            fontSize: 16,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class BottomChatField extends StatefulWidget {
-  const BottomChatField({
-    super.key,
-    required this.onSend,
-  });
-  final Function(String) onSend;
-
-  @override
-  _BottomChatFieldState createState() => _BottomChatFieldState();
-}
-
-class _BottomChatFieldState extends State<BottomChatField> {
-  final TextEditingController _textEditingController = TextEditingController();
-  bool _isComposing = false;
-  bool _showingEmojis = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            blurRadius: 5,
-          ),
-        ],
-      ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      // color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        IconButton(
-                          icon: Icon(
-                            _showingEmojis
-                                ? Icons.close
-                                : Icons.insert_emoticon,
-                          ),
-                          onPressed: () {
-                            _showingEmojis = !_showingEmojis;
-                            setState(() {});
-                            // Implement emoji picker or open keyboard
-                          },
-                        ),
-                        Expanded(
-                          child: TextField(
-                            controller: _textEditingController,
-                            maxLines: null,
-                            onChanged: (String text) {
-                              setState(() {
-                                _isComposing = text.isNotEmpty;
-                              });
-                            },
-                            decoration: const InputDecoration.collapsed(
-                              hintText: 'Type a message',
-                            ),
-                          ),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.attach_file),
-                          onPressed: () {
-                            // Implement file picker or open camera/gallery
-                          },
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.send),
-                          onPressed: _isComposing
-                              ? () {
-                                  widget.onSend(_textEditingController.text);
-                                  _textEditingController.clear();
-                                  setState(() {
-                                    _isComposing = false;
-                                  });
-                                }
-                              : null,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            if (_showingEmojis)
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: EmojiPicker(
-                  onEmojiSelected: (emoji, category) {
-                    setState(() {
-                      _textEditingController.text =
-                          _textEditingController.text + category.emoji;
-                    });
-                  },
-                ),
-              ),
-          ],
         ),
       ),
     );

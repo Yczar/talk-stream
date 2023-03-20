@@ -3,9 +3,9 @@ import 'package:talk_stream/app/src/utils/models/notification_type.dart';
 
 class InAppNotification extends StatefulWidget {
   const InAppNotification({
-    super.key,
     required this.message,
     required this.type,
+    super.key,
   });
   final String message;
   final NotificationType type;

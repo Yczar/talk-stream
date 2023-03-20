@@ -24,7 +24,6 @@ class HttpService {
     Map<String, String>? headers,
     Object? body,
   }) async {
-    print('$_baseUrl$endpoint');
     final response = await http.post(
       Uri.parse(
         '$_baseUrl$endpoint',
@@ -32,7 +31,6 @@ class HttpService {
       headers: headers,
       body: json.encode(body),
     );
-    print(response);
     return _handleResponse(response);
   }
 
@@ -59,7 +57,6 @@ class HttpService {
   }
 
   http.Response _handleResponse(http.Response response) {
-    print(response.body);
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return response;
     } else {

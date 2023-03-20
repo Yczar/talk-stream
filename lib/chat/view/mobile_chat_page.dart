@@ -48,8 +48,8 @@ class MobileChatPage extends StatelessWidget {
 
 class MobileChatView extends StatelessWidget {
   const MobileChatView({
-    super.key,
     required this.userId,
+    super.key,
   });
   final String userId;
 

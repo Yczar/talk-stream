@@ -56,7 +56,7 @@ class _WebChatView extends StatelessWidget {
         children: [
           SizedBox(
             width: size.width / 2.5,
-            child: Container(
+            child: ColoredBox(
               color: const Color(0xFFFFFDF9),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,8 +108,6 @@ class _WebChatView extends StatelessWidget {
                           separatorBuilder: (_, __) => const YMargin(20),
                           itemCount: 4,
                           itemBuilder: (_, index) {
-                            final chat = chats[index];
-                            final user = chat.user;
                             return InkWell(
                               onTap: () {
                                 // final chat = chats.firstWhereOrNull(
@@ -322,140 +320,3 @@ class _WebChatView extends StatelessWidget {
     );
   }
 }
-
-
-
-// class ContactListAlertDialog extends StatefulWidget {
-//   const ContactListAlertDialog({
-//     super.key,
-//     required this.contacts,
-//     required this.chats,
-//   });
-//   final List<Contact> contacts;
-//   final List<WebChat> chats;
-
-//   @override
-//   _ContactListAlertDialogState createState() => _ContactListAlertDialogState();
-// }
-
-// class _ContactListAlertDialogState extends State<ContactListAlertDialog> {
-//   @override
-//   Widget build(BuildContext context) {
-//     final size = MediaQuery.of(context).size;
-//     return AlertDialog(
-//       title: Padding(
-//         padding: const EdgeInsets.symmetric(
-//           horizontal: 20,
-//         ),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: [
-//             const Text(
-//               'All Users',
-//               style: TextStyle(
-//                 color: Color(0xFF121212),
-//                 fontSize: 24,
-//                 fontWeight: FontWeight.w900,
-//               ),
-//             ),
-//             IconButton(
-//               onPressed: () {
-//                 Navigator.of(context).pop();
-//               },
-//               icon: const Icon(
-//                 Icons.close_outlined,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//       content: SingleChildScrollView(
-//         child: BlocBuilder<HomeCubit, HomeState>(
-//           builder: (context, state) {
-//             if (state is HomeLoaded) {
-//               return ListBody(
-//                 children: state.users.map((user) {
-//                   return InkWell(
-//                     onTap: () {
-//                       final chat = widget.chats.firstWhereOrNull(
-//                         (cht) => cht.members?.contains(user.userId) ?? false,
-//                       );
-//                       context.read<WebChatRoomCubit>().updateCurrentRoom(
-//                             user,
-//                             chat,
-//                           );
-//                       Navigator.of(context).pop();
-//                     },
-//                     child: Container(
-//                       padding: const EdgeInsets.all(
-//                         20,
-//                       ),
-//                       width: size.width * 0.8,
-//                       margin: const EdgeInsets.symmetric(
-//                         horizontal: 16,
-//                         vertical: 5,
-//                       ),
-//                       decoration: BoxDecoration(
-//                         border: Border.all(
-//                           color: const Color(0xFFF2F2F2),
-//                         ),
-//                         borderRadius: BorderRadius.circular(16),
-//                       ),
-//                       child: Row(
-//                         children: [
-//                           CircleAvatar(
-//                             backgroundColor: Colors.grey,
-//                             backgroundImage: MemoryImage(
-//                               Uint8List.fromList(user.profilePicture.codeUnits),
-//                             ),
-//                           ),
-//                           const XMargin(10),
-//                           Expanded(
-//                             child: Column(
-//                               crossAxisAlignment: CrossAxisAlignment.start,
-//                               children: [
-//                                 Text(
-//                                   user.name,
-//                                   style: const TextStyle(
-//                                     color: Color(0xFF121212),
-//                                     fontWeight: FontWeight.w500,
-//                                   ),
-//                                 ),
-//                                 Text(
-//                                   user.email,
-//                                   style: const TextStyle(
-//                                     color: Colors.grey,
-//                                     fontWeight: FontWeight.w400,
-//                                   ),
-//                                 ),
-//                               ],
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                   );
-//                 }).toList(),
-//               );
-//             } else if (state is HomeLoading) {
-//               return const CircularProgressIndicator(
-//                 valueColor: AlwaysStoppedAnimation(
-//                   Color(0xFF1F1F1F),
-//                 ),
-//               );
-//             }
-//             return const Offstage();
-//           },
-//         ),
-//       ),
-//       actions: [
-//         TextButton(
-//           onPressed: () {
-//             Navigator.of(context).pop();
-//           },
-//           child: const Text('Cancel'),
-//         ),
-//       ],
-//     );
-//   }
-// }

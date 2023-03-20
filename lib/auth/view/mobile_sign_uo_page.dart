@@ -92,13 +92,13 @@ class _MobileSignUpPageState extends State<MobileSignUpPage> {
 
 class MobileSignUpView extends StatelessWidget {
   const MobileSignUpView({
-    super.key,
     required this.emailController,
     required this.nameController,
     required this.passwordController,
     required this.usernameController,
     required this.pickImage,
     required this.pickedFileBytes,
+    super.key,
   });
   final TextEditingController nameController;
   final TextEditingController emailController;
