@@ -1,17 +1,10 @@
+// **Web Version**
+// *Still In Progres**
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:talk_stream/app/src/extensions/context_extensions.dart';
-
+import 'package:talk_stream/app/view/widgets/margins/x_margin.dart';
 import 'package:talk_stream/app/view/widgets/margins/y_margin.dart';
-import 'package:talk_stream/auth/cubits/signup_cubit.dart';
 import 'package:talk_stream/auth/view/widgets/web_sign_in_widget.dart';
 import 'package:talk_stream/auth/view/widgets/web_sign_up_widget.dart';
-
-import 'package:talk_stream/app/view/widgets/custom_text_field.dart';
-import 'package:talk_stream/app/view/widgets/margins/x_margin.dart';
 
 class WebAuthPage extends StatefulWidget {
   const WebAuthPage({super.key});
