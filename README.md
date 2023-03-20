@@ -1,11 +1,10 @@
 # Talk Stream
 
-Talk Stream is a real-time chat application that allows users to join chat rooms and communicate with other users. This repository contains the source code for the Talk Stream mobile application and the backend server.
+Talk Stream is a real-time chat application that allows users to join chat rooms and communicate with other users. This repository contains the source code for the Talk Stream mobile application.
 
 ## Features
 
-- Join chat rooms and communicate with other users in real-time
-- Create new chat rooms and invite other users to join
+- Communicate with other users in real-time
 - Send private messages to other users
 - Receive push notifications for new messages
 - View the online/offline status of other users
