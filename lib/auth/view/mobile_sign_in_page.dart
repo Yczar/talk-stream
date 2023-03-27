@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nested/nested.dart';
 import 'package:talk_stream/app/src/constants/app_routes.dart';
+import 'package:talk_stream/app/src/constants/string_constant.dart';
 import 'package:talk_stream/app/src/extensions/context_extensions.dart';
 import 'package:talk_stream/app/view/widgets/margins/x_margin.dart';
 import 'package:talk_stream/app/view/widgets/margins/y_margin.dart';
@@ -88,7 +89,7 @@ class _MobileSignInView extends StatelessWidget {
                   ),
                   XMargin(10),
                   Text(
-                    'TalkStream',
+                    AppString.talkStream,
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 24,
@@ -98,7 +99,7 @@ class _MobileSignInView extends StatelessWidget {
               ),
               const YMargin(20),
               const Text(
-                'Sign In',
+               AppString.signIn,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 18,
@@ -106,9 +107,7 @@ class _MobileSignInView extends StatelessWidget {
               ),
               const YMargin(6),
               const Text(
-                'TalkStream is a versatile chat app that offers a '
-                'seamless messaging experience for both personal and '
-                'professional use. It was built using Dart Frog and Flutter.',
+                AppString.talkStreamDescription,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 12,

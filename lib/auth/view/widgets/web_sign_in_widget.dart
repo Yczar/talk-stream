@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:talk_stream/app/src/constants/string_constant.dart';
 import 'package:talk_stream/app/src/extensions/context_extensions.dart';
 import 'package:talk_stream/app/view/widgets/custom_text_field.dart';
 import 'package:talk_stream/app/view/widgets/margins/y_margin.dart';
@@ -96,16 +97,16 @@ class SignInView extends StatelessWidget {
       child: Column(
         children: [
           CustomTextField(
-            label: 'Email',
+            label: AppString.email,
             icon: FontAwesomeIcons.envelope,
-            hintText: 'Enter your email',
+            hintText: AppString.enterEmail,
             controller: emailEditingController,
           ),
           const YMargin(24),
           CustomTextField(
-            label: 'Password',
+            label: AppString.password,
             icon: FontAwesomeIcons.lock,
-            hintText: 'Enter your password',
+            hintText:AppString.enterPassword ,
             controller: passwordEditingController,
             obscureText: true,
           ),
@@ -141,7 +142,7 @@ class SignInView extends StatelessWidget {
                           ),
                         )
                       : const Text(
-                          'Sign In',
+                          AppString.signIn,
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
@@ -158,7 +159,7 @@ class SignInView extends StatelessWidget {
               onPressed: onSwitch,
               child: RichText(
                 text: TextSpan(
-                  text: "Don't have an account? ",
+                  text: AppString.noAccount,
                   style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
@@ -166,7 +167,7 @@ class SignInView extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: 'Sign Up here.',
+                      text: AppString.signUpHere,
                       style: GoogleFonts.dmSans(
                         fontWeight: FontWeight.w500,
                         fontSize: 14,

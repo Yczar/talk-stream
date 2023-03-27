@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:talk_stream/app/src/constants/string_constant.dart';
 import 'package:talk_stream/app/src/extensions/context_extensions.dart';
 
 import 'package:talk_stream/app/view/widgets/custom_text_field.dart';
@@ -130,30 +131,30 @@ class SignUpView extends StatelessWidget {
           ),
         ),
         CustomTextField(
-          label: 'Username',
+          label: AppString.username,
           icon: FontAwesomeIcons.user,
-          hintText: 'Enter your username',
+          hintText: AppString.enterUsername,
           controller: usernameController,
         ),
         const YMargin(24),
         CustomTextField(
-          label: 'Name',
+          label: AppString.name,
           icon: FontAwesomeIcons.user,
-          hintText: 'Enter your name',
+          hintText: AppString.enterName,
           controller: nameController,
         ),
         const YMargin(24),
         CustomTextField(
-          label: 'Email',
+          label: AppString.email,
           icon: FontAwesomeIcons.envelope,
-          hintText: 'Enter your email',
+          hintText: AppString.enterEmail,
           controller: emailController,
         ),
         const YMargin(24),
         CustomTextField(
-          label: 'Password',
+          label: AppString.password,
           icon: FontAwesomeIcons.lock,
-          hintText: 'Enter your password',
+          hintText: AppString.enterPassword,
           controller: passwordController,
           obscureText: true,
         ),
@@ -170,7 +171,7 @@ class SignUpView extends StatelessWidget {
                 onPressed: () async {
                   if (pickedFileBytes == null) {
                     context.showInAppNotifications(
-                      'Please select a profile image',
+                      AppString.selectPicture,
                     );
                     return;
                   }
@@ -199,7 +200,7 @@ class SignUpView extends StatelessWidget {
                         ),
                       )
                     : const Text(
-                        'Sign Up',
+                       AppString.signUp,
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 16,

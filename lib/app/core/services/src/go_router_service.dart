@@ -4,7 +4,7 @@ import 'package:talk_stream/app/src/constants/app_routes.dart';
 import 'package:talk_stream/app/src/extensions/context_extensions.dart';
 import 'package:talk_stream/auth/models/user.dart';
 import 'package:talk_stream/auth/view/mobile_sign_in_page.dart';
-import 'package:talk_stream/auth/view/mobile_sign_uo_page.dart';
+import 'package:talk_stream/auth/view/mobile_sign_up_page.dart';
 import 'package:talk_stream/auth/view/web_auth_page.dart';
 import 'package:talk_stream/chat/models/message.dart';
 import 'package:talk_stream/chat/view/chat_page.dart';

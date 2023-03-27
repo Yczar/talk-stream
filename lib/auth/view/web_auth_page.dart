@@ -1,6 +1,7 @@
 // **Web Version**
 // *Still In Progres**
 import 'package:flutter/material.dart';
+import 'package:talk_stream/app/src/constants/string_constant.dart';
 import 'package:talk_stream/app/view/widgets/margins/x_margin.dart';
 import 'package:talk_stream/app/view/widgets/margins/y_margin.dart';
 import 'package:talk_stream/auth/view/widgets/web_sign_in_widget.dart';
@@ -72,7 +73,7 @@ class _HomeView extends StatelessWidget {
                         ),
                         XMargin(10),
                         Text(
-                          'TalkStream',
+                        AppString.talkStream,
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 30,
@@ -86,8 +87,8 @@ class _HomeView extends StatelessWidget {
                       builder: (context, currentPage, __) {
                         return Text(
                           currentPage != _PageEnum.signin
-                              ? 'Sign In'
-                              : 'Create an account.',
+                              ? AppString.signIn
+                              : AppString.createAccount,
                           style: const TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 28,
@@ -97,10 +98,7 @@ class _HomeView extends StatelessWidget {
                     ),
                     const YMargin(6),
                     const Text(
-                      'TalkStream is a versatile chat app that offers a '
-                      'seamless messaging experience for both personal and '
-                      'professional use. It was built using Dart Frog '
-                      'and Flutter.',
+                     AppString.talkStreamDescription,
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
