@@ -189,7 +189,7 @@ packages:
       name: emoji_picker_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.2"
+    version: "1.5.4"
   equatable:
     dependency: "direct main"
     description:
