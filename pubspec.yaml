@@ -28,7 +28,7 @@ dependencies:
   meta: ^1.8.0
   nested: ^1.0.0
   timeago: ^3.3.0
-  web_socket_channel: ^2.3.0
+  web_socket_channel: ^2.4.0
 
 dev_dependencies:
   bloc_test: ^9.1.1
