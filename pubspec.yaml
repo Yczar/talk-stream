@@ -9,7 +9,7 @@ environment:
 dependencies:
   bloc: ^8.1.1
   collection: ^1.17.0
-  emoji_picker_flutter: ^1.5.2
+  emoji_picker_flutter: ^1.6.0
   equatable: ^2.0.5
   flutter:
     sdk: flutter
